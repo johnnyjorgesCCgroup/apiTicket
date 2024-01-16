@@ -1,6 +1,7 @@
 {
     "tickets": [
       {
+        "id": "1",
         "usuario": "Sara",
         "tipologia": "Consulta",
         "fecha_creacion": "2024-01-16",
@@ -10,6 +11,7 @@
         "estado": "Abierto"
       },
       {
+        "id": "2",
         "usuario": "Jaime",
         "tipologia": "Reclamo",
         "fecha_creacion": "2024-01-16",
@@ -19,6 +21,7 @@
         "estado": "Abierto"
       },
       {
+        "id": "3",
         "usuario": "Ray",
         "tipologia": "Solicitud",
         "fecha_creacion": "2024-01-16",
@@ -28,6 +31,7 @@
         "estado": "Abierto"
       },
       {
+        "id": "4",
         "usuario": "Francys",
         "tipologia": "Reparación",
         "fecha_creacion": "2024-01-16",
@@ -37,6 +41,7 @@
         "estado": "Abierto"
       },
       {
+        "id": "5",
         "usuario": "Cristian",
         "tipologia": "Consulta",
         "fecha_creacion": "2024-01-16",
@@ -46,6 +51,7 @@
         "estado": "Abierto"
       },
       {
+        "id": "6",
         "usuario": "Rodolfo",
         "tipologia": "Reclamo",
         "fecha_creacion": "2024-01-16",

@@ -1,0 +1,59 @@
+{
+    "tickets": [
+      {
+        "usuario": "Sara",
+        "tipologia": "Consulta",
+        "fecha_creacion": "2024-01-16",
+        "fecha_actualizacion": null,
+        "urgente": false,
+        "comentario": "Necesito ayuda con un problema técnico",
+        "estado": "Abierto"
+      },
+      {
+        "usuario": "Jaime",
+        "tipologia": "Reclamo",
+        "fecha_creacion": "2024-01-16",
+        "fecha_actualizacion": null,
+        "urgente": true,
+        "comentario": "Producto defectuoso, quiero un reembolso",
+        "estado": "Abierto"
+      },
+      {
+        "usuario": "Ray",
+        "tipologia": "Solicitud",
+        "fecha_creacion": "2024-01-16",
+        "fecha_actualizacion": null,
+        "urgente": false,
+        "comentario": "Necesito más información sobre un producto",
+        "estado": "Abierto"
+      },
+      {
+        "usuario": "Francys",
+        "tipologia": "Reparación",
+        "fecha_creacion": "2024-01-16",
+        "fecha_actualizacion": null,
+        "urgente": true,
+        "comentario": "Problema con el servicio, necesito asistencia técnica",
+        "estado": "Abierto"
+      },
+      {
+        "usuario": "Cristian",
+        "tipologia": "Consulta",
+        "fecha_creacion": "2024-01-16",
+        "fecha_actualizacion": null,
+        "urgente": false,
+        "comentario": "¿Cuál es el plazo de entrega?",
+        "estado": "Abierto"
+      },
+      {
+        "usuario": "Rodolfo",
+        "tipologia": "Reclamo",
+        "fecha_creacion": "2024-01-16",
+        "fecha_actualizacion": null,
+        "urgente": true,
+        "comentario": "Pedido incorrecto, quiero una solución",
+        "estado": "Abierto"
+      }
+    ]
+  }
+  

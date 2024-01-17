@@ -1,6 +1,7 @@
 import express from 'express';
 import { config } from 'dotenv';
 import pg from 'pg';
+import cors from 'cors'; 
 
 config();
 
@@ -13,6 +14,7 @@ const pool = new pg.Pool({
 });
 
 app.use(express.json()); // Habilita el uso de JSON en las solicitudes
+app.use(cors());
 
 // Ruta para obtener todos los tickets
 app.get('/tickets', async (req, res) => {

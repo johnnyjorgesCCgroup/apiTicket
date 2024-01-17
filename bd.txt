@@ -1,0 +1,7 @@
+PostgreSQL
+
+api_ticket_bd_ccgroup
+Password: 0HogeR4srXfqwLFGbiP98CADAT9BsWAL
+Internal Database URL: postgres://api_ticket_bd_ccgroup_user:0HogeR4srXfqwLFGbiP98CADAT9BsWAL@dpg-cmjt90un7f5s73cf4pug-a/api_ticket_bd_ccgroup
+External Database URL: postgres://api_ticket_bd_ccgroup_user:0HogeR4srXfqwLFGbiP98CADAT9BsWAL@dpg-cmjt90un7f5s73cf4pug-a.oregon-postgres.render.com/api_ticket_bd_ccgroup
+PSQL Command: PGPASSWORD=0HogeR4srXfqwLFGbiP98CADAT9BsWAL psql -h dpg-cmjt90un7f5s73cf4pug-a.oregon-postgres.render.com -U api_ticket_bd_ccgroup_user api_ticket_bd_ccgroup

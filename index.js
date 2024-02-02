@@ -1,8 +1,7 @@
-import express from 'express'
-import {config} from 'dotenv'
-
-
-import pg from 'pg'
+import express from 'express';
+import cors from 'cors';
+import { config } from 'dotenv';
+import pg from 'pg';
 
 config();
 
@@ -14,9 +13,15 @@ const pool = new pg.Pool({
   },
 });
 
-app.get('/',(req, res) => {
-  res.send('Hello World')
-})
+
+// Middleware CORS
+app.use(cors());
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 
 app.get('/tickets', async (req, res) => {
   try {
@@ -28,7 +33,6 @@ app.get('/tickets', async (req, res) => {
   }
 });
 
-// Ruta para obtener un ticket específico por ID
 app.get('/tickets/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -44,7 +48,6 @@ app.get('/tickets/:id', async (req, res) => {
   }
 });
 
-// Ruta para crear un nuevo ticket
 app.post('/tickets', async (req, res) => {
   const { usuario, tipologia, urgente, comentario, estado } = req.body;
   try {
@@ -59,7 +62,6 @@ app.post('/tickets', async (req, res) => {
   }
 });
 
-// Ruta para actualizar un ticket existente por ID
 app.put('/tickets/:id', async (req, res) => {
   const { id } = req.params;
   const { usuario, tipologia, urgente, comentario, estado } = req.body;
@@ -79,7 +81,6 @@ app.put('/tickets/:id', async (req, res) => {
   }
 });
 
-// Ruta para eliminar un ticket por ID
 app.delete('/tickets/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -96,6 +97,7 @@ app.delete('/tickets/:id', async (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(3006, () => {
-  console.log('Server listening on port 3006');
+const PORT = process.env.PORT || 3006;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

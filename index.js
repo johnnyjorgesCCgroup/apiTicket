@@ -15,7 +15,9 @@ const pool = new pg.Pool({
 
 
 // Middleware CORS
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 app.use(express.json());
 

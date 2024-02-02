@@ -1,6 +1,5 @@
 import express from 'express'
 import {config} from 'dotenv'
-import cors from 'cors';
 
 
 import pg from 'pg'
@@ -9,13 +8,11 @@ config();
 
 const app = express();
 const pool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL
-})
-
-app.use(cors({
-  origin: 'http://localhost:5173', // Reemplaza con la URL real de tu frontend
-  credentials: true,
-}));
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Solo úsalo para propósitos de desarrollo, NO en producción
+  },
+});
 
 app.get('/',(req, res) => {
   res.send('Hello World')

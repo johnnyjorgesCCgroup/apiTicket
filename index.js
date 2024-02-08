@@ -6,6 +6,7 @@ import pg from 'pg';
 config();
 
 const app = express();
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -16,7 +17,7 @@ const pool = new pg.Pool({
 
 // Middleware CORS
 app.use(cors({
-  origin: '*',
+  origin: 'http://localhost:5173', // Cambia esto según sea necesario
 }));
 
 app.use(express.json());

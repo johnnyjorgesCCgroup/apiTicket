@@ -6,7 +6,6 @@ import pg from 'pg';
 config();
 
 const app = express();
-const { createProxyMiddleware } = require('http-proxy-middleware');
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {

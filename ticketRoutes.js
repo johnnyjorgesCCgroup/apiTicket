@@ -1,31 +1,10 @@
+// ticketRoutes.js
 import express from 'express';
-import cors from 'cors';
-import { config } from 'dotenv';
-import pg from 'pg';
+import { pool } from './db.js';
 
-config();
+const router = express.Router();
 
-const app = express();
-const pool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false, // Solo úsalo para propósitos de desarrollo, NO en producción
-  },
-});
-
-
-// Middleware CORS
-app.use(cors({
-  origin: 'http://localhost:5173', // Cambia esto según sea necesario
-}));
-
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
-app.get('/tickets', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM tickets');
     return res.json(result.rows);
@@ -35,7 +14,7 @@ app.get('/tickets', async (req, res) => {
   }
 });
 
-app.get('/tickets/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const result = await pool.query('SELECT * FROM tickets WHERE id = $1', [id]);
@@ -50,7 +29,7 @@ app.get('/tickets/:id', async (req, res) => {
   }
 });
 
-app.post('/tickets', async (req, res) => {
+router.post('/', async (req, res) => {
   const { usuario, tipologia, urgente, comentario, estado } = req.body;
   try {
     const result = await pool.query(
@@ -64,7 +43,7 @@ app.post('/tickets', async (req, res) => {
   }
 });
 
-app.put('/tickets/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { usuario, tipologia, urgente, comentario, estado } = req.body;
   try {
@@ -83,7 +62,7 @@ app.put('/tickets/:id', async (req, res) => {
   }
 });
 
-app.delete('/tickets/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const result = await pool.query('DELETE FROM tickets WHERE id = $1 RETURNING *', [id]);
@@ -98,8 +77,4 @@ app.delete('/tickets/:id', async (req, res) => {
   }
 });
 
-// Iniciar el servidor
-const PORT = process.env.PORT || 3006;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+export default router;

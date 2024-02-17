@@ -4,6 +4,7 @@ import { config } from 'dotenv';
 import productRoutes from './productRoutes.js';
 import ticketRoutes from './ticketRoutes.js';
 import categoryRoutes from './categoryRoutes.js';
+import subCategoryRoutes from './subCategoryRoutes.js';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
 
@@ -26,6 +27,10 @@ app.use('/products', productRoutes);
 
 // Usa las rutas de productos
 app.use('/category', categoryRoutes);
+
+// Usa las rutas de productos
+app.use('/subcategory', subCategoryRoutes);
+
 
 
 // Configuración de Swagger

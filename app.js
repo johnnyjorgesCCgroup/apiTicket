@@ -1,9 +1,11 @@
-// app.js
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import productRoutes from './productRoutes.js';
-import ticketRoutes from './ticketRoutes.js'; // Importa las rutas de productos
+import ticketRoutes from './ticketRoutes.js';
+import categoryRoutes from './categoryRoutes.js';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 config();
 
@@ -21,6 +23,15 @@ app.use('/tickets', ticketRoutes);
 
 // Usa las rutas de productos
 app.use('/products', productRoutes);
+
+// Usa las rutas de productos
+app.use('/category', categoryRoutes);
+
+
+// Configuración de Swagger
+const swaggerDocument = YAML.load('./swagger.yaml'); // Ruta al archivo OpenAPI
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3006;

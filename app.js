@@ -5,6 +5,7 @@ import productRoutes from './productRoutes.js';
 import ticketRoutes from './ticketRoutes.js';
 import categoryRoutes from './categoryRoutes.js';
 import subCategoryRoutes from './subCategoryRoutes.js';
+import incidentsRoutes from './incidentsRoutes.js';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
 
@@ -30,6 +31,9 @@ app.use('/category', categoryRoutes);
 
 // Usa las rutas de productos
 app.use('/subcategory', subCategoryRoutes);
+
+// Usa las rutas de productos
+app.use('/incidents', incidentsRoutes);
 
 
 

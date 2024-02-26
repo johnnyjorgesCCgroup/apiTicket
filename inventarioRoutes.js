@@ -30,11 +30,11 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { nombre, estado, detalles, empleado } = req.body;
+  const { nombre, estado, detalles, empleado, area} = req.body;
   try {
     const result = await pool.query(
-      'INSERT INTO inventario (nombre, estado, detalles, empleado) VALUES ($1, $2, $3, $4) RETURNING *',
-      [nombre, estado, detalles, empleado]
+      'INSERT INTO inventario (nombre, estado, detalles, empleado, area) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [nombre, estado, detalles, empleado, area]
     );
     return res.json(result.rows[0]);
   } catch (error) {
@@ -45,11 +45,11 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { nombre, estado, detalles, empleado } = req.body;
+  const { nombre, estado, detalles, empleado, area } = req.body;
   try {
     const result = await pool.query(
-      'UPDATE inventario SET nombre = $1, estado = $2, detalles = $3, empleado = $4 WHERE id = $5 RETURNING *',
-      [nombre, estado, detalles, empleado, id]
+      'UPDATE inventario SET nombre = $1, estado = $2, detalles = $3, empleado = $4, area = $5 WHERE id = $6 RETURNING *',
+      [nombre, estado, detalles, empleado, area, id]
     );
     if (result.rows.length > 0) {
       return res.json(result.rows[0]);
@@ -61,6 +61,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;

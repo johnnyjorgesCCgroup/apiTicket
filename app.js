@@ -16,7 +16,8 @@ const app = express();
 
 // Middleware CORS
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: [ 'http://localhost:5173','https://cvimport.com/', 'https://api.cvimport.com/', 'http://172.208.27.164']
+  ,
 }));
 
 app.use(express.json());
